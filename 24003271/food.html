@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顺德美食推荐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f6f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+  .nav-menu {
+      list-style: none;
+      text-align: center;
+      padding: 2rem;
+      background: #f8f9fa;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+   
+  .nav-item {
+      display: inline-block;
+      margin: 0 2rem;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+  }
+   
+  .nav-link {
+      text-decoration: none;
+      color: #333;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+  }
+   
+  .nav-link:hover {
+      background: #007bff;
+      color: white;
+      transform: translateY(-2px);
+  }
+        .active {
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .video-container {
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            background-color: #000;
+            border: none;
+        }
+        
+        .content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 15px;
+        }
+        
+        .content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .content p:first-of-type {
+            font-size: 22px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        
+        .content br {
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .restaurant-list {
+            margin-top: 30px;
+        }
+        
+        .restaurant-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #e74c3c;
+            border-radius: 4px;
+        }
+        
+        .restaurant-name {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        .restaurant-address {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            ul {
+                flex-wrap: wrap;
+            }
+            
+            ul li {
+                margin: 5px;
+            }
+            
+            .content p {
+                font-size: 16px;
+            }
+            
+            .content h1 {
+                font-size: 26px;
+            }
+        }
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease;
+		}
+
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		    position: relative; /* 为伪元素定位 */
+		}
+		
+		.nav-link:hover {
+		    background-color: ghostwhite;
+			 color: black;/* 鼠标悬停时的背景颜色 */
+			font-weight: bolder;
+		}
+		
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 300px;
+		}
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: black; /* 下拉菜单文字颜色也为黑色 */
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}
+		
+		
+		
+		
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+            <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+            <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+            <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+            <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+			<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+			<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="new_Html/main.html">Click on it </a></li>
+			    </ul>
+			</li>
+        </ul>
+    </nav>
+    </header>
+    
+    <div class="container">
+        <div class="video-container">
+           <img src="image/Food Eating GIF by SpongeBob SquarePants.gif" alt="food">
+        </div>
+        
+        <div class="content">
+            <h1>顺德美食推荐</h1>
+            <p>全是顺德当地人爱吃的饭店，请大家帮忙投币点赞转发收藏，感谢支持[脱单doge]</p>
+            
+            <div class="restaurant-list">
+                <div class="restaurant-item">
+                    <div class="restaurant-name">1. 大门公饭店</div>
+                    <div class="restaurant-address">地址：105国道大门石材市场内</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">2. 水仙头私房菜</div>
+                    <div class="restaurant-address">地址：良逢路君临名邸西门西150米路南</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">3. 凤苑私厨</div>
+                    <div class="restaurant-address">地址：德胜中路11号喜来登首层3号铺</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">4. 聚牛坊</div>
+                    <div class="restaurant-address">地址：大吉大街81号</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">5. 会龙居私房菜</div>
+                    <div class="restaurant-address">地址：大良街道逢沙三会大街右一巷24号</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">6. 𠮩𠹌私房菜</div>
+                    <div class="restaurant-address">地址：祥兴南路11号</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">7. 银辉饭店</div>
+                    <div class="restaurant-address">地址：沿江北路22号怡东阁12号铺</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">8. 顺德天天有喜</div>
+                    <div class="restaurant-address">地址：滨河路1号凤城食都8号楼3楼</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">9. 根哥农庄·大门人家</div>
+                    <div class="restaurant-address">地址：白石南路与马岗大道交叉路口往北约270米</div>
+                </div>
+                
+                <div class="restaurant-item">
+                    <div class="restaurant-name">10. 富哥食店</div>
+                    <div class="restaurant-address">地址：得贤路一街1号铺</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 顺德美食网站 版权所有</p>
+    </footer>
+</body>
+</html>

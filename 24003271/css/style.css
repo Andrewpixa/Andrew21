@@ -1,0 +1,499 @@
+/* 基础样式 */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a2b9fe;
+    --dark-color: #2d3436;
+    --light-color: #f5f6fa;
+    --success-color: #00b894;
+    --danger-color: #e74c3c;
+    --gradient-primary: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    --gradient-secondary: linear-gradient(135deg, #fd79a8, #ff9ff3);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 登录/注册页面样式 */
+.login-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    display: flex; 	
+    overflow: hidden; 
+	
+}
+
+.login-logo {
+    position: absolute;
+	top: 40px;
+	left: 420px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	
+}
+
+.login-logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+
+
+.login-form, .register-form {
+    width: 400px;
+    padding: 50px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 10;
+    margin-left: 50px;
+    margin-top: 50px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-form h2, .register-form h2 {
+    margin-bottom: 5px;
+    color: var(--dark-color);
+    font-size: 2rem;
+}
+
+.login-form p, .register-form p {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.form-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: var(--transition);
+}
+
+.form-group input:focus + i {
+    color: var(--primary-color);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-login, .btn-register {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-login:hover, .btn-register:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.register-link a:hover {
+    color: var(--secondary-color);
+}
+
+/* 背景样式 */
+.login-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+	background-image: url(/24003271/image/SKY0.jpg);
+	
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.register-bg {
+    background: var(--gradient-secondary);
+}
+
+/* 加载动画 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+.loading-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(108, 92, 231, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 通知 */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--success-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transform: translateX(200%);
+    transition: transform 0.5s ease-out;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* 主页面样式 */
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--primary-color);
+}
+
+nav ul li a:hover:after, nav ul li a.active:after {
+    width: 100%;
+}
+
+main {
+    padding: 40px 0;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.welcome-card {
+    grid-column: span 12;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.welcome-card h2 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.welcome-card p {
+    color: #666;
+}
+
+.stats-container {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card i {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+}
+
+.stat-card:nth-child(1) i { background: var(--gradient-primary); }
+.stat-card:nth-child(2) i { background: var(--gradient-secondary); }
+.stat-card:nth-child(3) i { background: linear-gradient(135deg, #fdcb6e, #ffeaa7); }
+.stat-card:nth-child(4) i { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.recent-activities {
+    grid-column: span 12;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.recent-activities h3 {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    display: flex;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    transition: var(--transition);
+}
+
+.activity-item:hover {
+    background: #f5f5f5;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.activity-icon i {
+    color: white;
+    font-size: 1rem;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content p {
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.activity-content p span {
+    color: var(--primary-color);
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+footer {
+    background: #2d3436;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* 退出按钮 */
+#logoutBtn {
+    color: var(--danger-color) !important;
+}
+
+#logoutBtn:hover {
+    color: #e74c3c !important;
+}
+
+#logoutBtn:after {
+    background-color: var(--danger-color) !important;
+}

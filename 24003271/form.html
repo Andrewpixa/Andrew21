@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+	
+	
+	/* 基础样式 */
+	.nav-menu {
+	    list-style: none;
+	    padding: 0;
+	    margin: 0;
+	    display: flex;
+	    justify-content: center;
+	}
+	
+	.nav-item {
+	    position: relative;
+	    padding: 0 15px;
+	}
+	
+	.nav-link {
+	    color: black; /* 所有文字颜色改为黑色 */
+	    text-decoration: none;
+	    display: block;
+	    padding: 10px 0;
+	    transition: background-color 0.3s ease, color 0.3s ease;
+	    position: relative; /* 为伪元素定位 */
+	}
+	
+	.nav-link:hover {
+	    background-color: ghostwhite;
+		 color: black;/* 鼠标悬停时的背景颜色 */
+		font-weight: bolder;
+	}
+	
+	/* 文字下划线动画效果 */
+	.nav-link::after {
+	    content: '';
+	    position: absolute;
+	    bottom: 0;
+	    left: 50%; /* 从中间开始 */
+	    width: 0; /* 初始宽度为0 */
+	    height: 2px; /* 横线高度 */
+	    background-color: black; /* 横线颜色改为黑色 */
+	    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+	}
+	
+	.nav-link:hover::after {
+	    width: 100%; /* 鼠标悬停时宽度变为100% */
+	    left: 0; /* 从中间扩展到两侧 */
+	}
+	
+	/* 下拉菜单样式 */
+	.dropdown-menu {
+	    display: none;
+	    position: absolute;
+	    top: 100%;
+	    left: 0;
+	    background-color: #fff;
+	    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	    border-radius: 8px;
+	    z-index: 1000;
+	    list-style: none;
+	    padding: 10px 0;
+	    margin: 0;
+	    width: 300px;
+	}
+	
+	.dropdown-menu li a {
+	    display: block;
+	    padding: 10px 15px;
+	    text-decoration: none;
+	    color: black; /* 下拉菜单文字颜色也为黑色 */
+	    transition: background-color 0.3s ease;
+	}
+	
+	.dropdown-menu li a:hover {
+	    background-color: #f1f1f1;
+	}
+	
+	/* 鼠标悬停显示下拉菜单 */
+	.dropdown:hover .dropdown-menu {
+	    display: block;
+	}
+	
+	/* 下拉菜单的过渡效果 */
+	.dropdown-menu {
+	    opacity: 0;
+	    visibility: hidden;
+	    transition: opacity 0.3s ease, visibility 0.3s ease;
+	}
+	
+	.dropdown:hover .dropdown-menu {
+	    opacity: 1;
+	    visibility: visible;
+	}
+	body {
+	    font-family: Arial, sans-serif;
+	    background-color: #f9f9f9;
+	    margin: 0;
+	    padding: 0;
+	    color: #333;
+	}
+	* {
+	    margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
+	}
+	
+	
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+        .header-row {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+        .group-header {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #ffcc00;
+        }
+		
+
+    </style>
+</head>
+<body>
+	<nav>
+	    <ul class="nav-menu">
+	        <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+	        <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+	        <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+	        <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+	        <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+			<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+			<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="new_Html/main.html">Click on it </a></li>
+			    </ul>
+			</li>
+	    </ul>
+	</nav>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">部门</th>
+                <th rowspan="2">员工姓名</th>
+                <th rowspan="2">职位</th>
+                <th colspan="3">绩效评估</th>
+                <th rowspan="2">总分</th>
+                <th rowspan="2">备注</th>
+            </tr>
+            <tr>
+                <th>工作态度</th>
+                <th>工作能力</th>
+                <th>团队合作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="group-header">
+                <td colspan="8">销售部</td>
+            </tr>
+            <tr>
+                <td>销售部</td>
+                <td>张三</td>
+                <td>销售经理</td>
+                <td >9</td>
+                <td>8</td>
+                <td>7</td>
+                <td>24</td>
+                <td>优秀</td>
+            </tr>
+            <tr>
+                <td>销售部</td>
+                <td>李四</td>
+                <td>销售代表</td>
+                <td>8</td>
+                <td>7</td>
+                <td>6</td>
+                <td>21</td>
+                <td>良好</td>
+            </tr>
+            <tr class="group-header">
+                <td colspan="8">技术部</td>
+            </tr>
+            <tr>
+                <td>技术部</td>
+                <td>王五</td>
+                <td>技术主管</td>
+                <td>9</td>
+                <td>9</td>
+                <td>8</td>
+                <td>26</td>
+                <td>优秀</td>
+            </tr>
+            <tr>
+                <td>技术部</td>
+                <td>赵六</td>
+                <td>软件工程师</td>
+                <td>7</td>
+                <td>8</td>
+                <td>7</td>
+                <td>22</td>
+                <td>良好</td>
+            </tr>
+            <tr class="group-header">
+                <td colspan="8">市场部</td>
+            </tr>
+            <tr>
+                <td>市场部</td>
+                <td>孙七</td>
+                <td>市场经理</td>
+                <td>8</td>
+                <td>7</td>
+                <td>9</td>
+                <td>24</td>
+                <td>优秀</td>
+            </tr>
+            <tr>
+                <td>市场部</td>
+                <td>周八</td>
+                <td>市场专员</td>
+                <td>6</td>
+                <td>6</td>
+                <td>7</td>
+                <td>19</td>
+                <td>合格</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="header-row">
+                <td colspan="3">总计</td>
+                <td>47</td>
+                <td>46</td>
+                <td>45</td>
+                <td>138</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+	
+	<table >
+		<thead><tr>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr></thead>
+		<tbody>
+		<tr>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td style="background-color: aqua;">3</td>
+			<td >3</td>
+			<td>3</td>
+			<td>3</td>
+			<td>3</td>
+			<td>3</td>
+		</tr></tbody>
+		<tfoot>
+		<tr>
+			<td>4</td>
+			<td>4</td>
+			<td>4</td>
+			<td>4</td>
+			<td>4</td>
+			<td>4</td>
+		</tr></tfoot>
+	</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			function $$(id){
+				return	document.getElementById(id);
+			}
+			window.onload = function(){
+				var cnv = $$("canvas");
+				var cxt = cnv.getContext("2d");
+				cxt.strokeStyle = "red"
+				cxt.moveTo(50,50);
+				cxt.lineTo(150,50);
+				cxt.lineTo(75,150);
+				cxt.lineTo(100,15);
+				cxt.lineTo(130,150);
+				cxt.lineTo(50,50);
+				cxt.stroke();
+				// 利用 moveTo 和 lineTo （起点坐标，终点坐标）
+				// stroke 用笔连线
+			}
+			
+		</script>
+		<link rel="stylesheet" href="/24003271/css/strict.css"/>
+	</head>
+	<body>
+		<canvas id="canvas" width="200" height="200" style="border: 1px dashed gray;"></canvas>
+		
+		<div class="cube">
+			<div class="top"></div>
+			<div>
+			<span style = "--i:0"></span>
+			<span style = "--i:1"></span>
+			<span style = "--i:2"></span> 
+			<span style = "--i:3"></span>
+			</div>
+		</div>
+
+
+	</body>
+</html>

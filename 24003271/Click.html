@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale = 1.0"/>
+		<title>123</title>
+		<script>
+
+        window.onload = function() {
+            var odiv = document.getElementById("to-do");
+            odiv.onclick = function() {
+                var node = document.getElementById("todo-app-format");
+                var newItem = document.createElement("div");
+                newItem.className = "input-item";
+                newItem.innerHTML = '<div><input type="checkbox"/><span>' + node.value + '</span></div><div><span class="del">del</span></div>';
+                document.querySelector(".todo-app").appendChild(newItem);
+                node.value = ''; 
+                var eee = document.querySelectorAll(".del");
+                eee[eee.length - 1].onclick = function() {
+                    this.parentNode.parentNode.remove(); 
+                };
+            }
+
+          
+            var eee = document.querySelectorAll(".del");
+            for (var i = 0; i < eee.length; i++) {
+                eee[i].onclick = function() {
+                    this.parentNode.parentNode.remove();
+                };
+            }
+        }
+		alert("单击添加事件");
+		</script>
+	</head>
+	<body style="zoom: 25%;">
+		
+		<div class="navbar">
+		<nav>
+		    <ul class="nav-menu">
+		        <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+		        <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+		        <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+		        <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+		        <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+				<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+				<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+				<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+				<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="Click.html">Javascript点击添加事件</a></li>
+			    </ul>
+			</li>
+		    </ul>
+		</nav>
+		</div>
+		
+		
+		<head>
+			
+			<div class="todo-app">
+				<h1>Todo App</h1> 
+				
+				<div class="todo-app-searing-list">
+					<input id="todo-app-format" type="text" placeholder="Search what your want"/>
+					<div class="todo-search" id="to-do" >Add Todo</div>
+				</div>
+				
+				<div class="input-item" id="pp">
+					<div>
+						<input type="checkbox"/>
+						<span>EAT</span>
+					</div>
+					<div>
+						<span id="ee">del</span>
+					</div>
+				</div>
+				<audio id="backgroundMusic" autoplay loop>
+				  <source src="img/video/RADWIMPS - スパークル (火花) (TV Version).mp3" type="audio/mpeg">
+				  
+				</audio>
+
+				
+			</div>
+			
+		</head>
+			<style>
+ 
+
+
+				
+			
+				
+				/* 文字下划线动画效果 */
+				.nav-link::after {
+				    content: '';
+				    position: absolute;
+				    bottom: 0;
+				    left: 50%; /* 从中间开始 */
+				    width: 0; /* 初始宽度为0 */
+				    height: 2px; /* 横线高度 */
+				    background-color: black; /* 横线颜色改为黑色 */
+				    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+				}
+				
+				.nav-link:hover::after {
+				    width: 100%; /* 鼠标悬停时宽度变为100% */
+				    left: 0; /* 从中间扩展到两侧 */
+				}
+				
+				/* 下拉菜单样式 */
+				.dropdown-menu {
+				    display: none;
+				    position: absolute;
+				    top: 100%;
+				    left: 0;
+				    background-color: #fff;
+				    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+				    border-radius: 8px;
+				    z-index: 1000;
+				    list-style: none;
+				    padding: 10px 0;
+				    margin: 0;
+				    width: 300px;
+				}
+				
+				.dropdown-menu li a {
+				    display: block;
+				    padding: 10px 15px;
+				    text-decoration: none;
+				    color: black; /* 下拉菜单文字颜色也为黑色 */
+				    transition: background-color 0.3s ease;
+				}
+				
+				.dropdown-menu li a:hover {
+				    background-color: #f1f1f1;
+				}
+				
+				/* 鼠标悬停显示下拉菜单 */
+				.dropdown:hover .dropdown-menu {
+				    display: block;
+				}
+				
+				/* 下拉菜单的过渡效果 */
+				.dropdown-menu {
+				    opacity: 0;
+				    visibility: hidden;
+				    transition: opacity 0.3s ease, visibility 0.3s ease;
+				}
+				
+				.dropdown:hover .dropdown-menu {
+				    opacity: 1;
+				    visibility: visible;
+				}
+				
+				
+				
+				
+				
+				.del{
+					color: red;
+				}
+				#pp{
+					
+					text-decoration: line-through;
+					opacity: 0.4;
+				}
+				#ee{
+					color: red;
+				} 
+				.input-item{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					font-size: 80px;
+					box-sizing: border-box;
+					width: 70%;
+					height: 150px;
+					margin:20px auto;
+					padding: 16px;
+					border-radius: 20px;
+					box-shadow:rgba(149,157,165,0.2) 0px 8px 20px;
+				}
+				.todo-search{
+					cursor: pointer;
+					width: 20%;
+					height: 52px;
+					border: 1px solid grey;
+					text-align: center;
+					user-select: none;
+					line-height: 82px;
+					border-radius: 0px 20px 20px 0px;
+					color: white;
+					background: linear-gradient(to right,rgb(113,65,168),rgb(44,114,251,1));
+					height: 100px;
+					font-size: 70px;
+					/* padding-top: 20px; */
+					/* text-align: center; */
+				}
+				#todo-app-format{
+					padding-left: 20px;
+					border: 1px solid grey;
+					outline: none;
+					border-radius: 20px 0 0 20px;
+					width: 40%;
+					height: 100px;
+					margin-left: 900px;
+					font-size: 70px;
+				}
+				.todo-app-searing-list{
+					text-align: center;
+					display: flex;
+					align-items: center;
+					margin-left: 555px;
+					
+				}
+				h1{
+					text-align: center;
+					font-size: 100px;
+				}
+				.todo-app{
+					background-color: aliceblue;
+					text-align: center;
+					height: 1500px;
+					border-radius: 2%;
+					border-style: solid;
+					border-color: aqua;
+					
+				}
+				body{
+					background: linear-gradient(to right,rgb(113,65,168),rgb(44,114,251,1));
+				}
+				
+				
+			/* 	body {
+				    font-family: Arial, sans-serif;
+				    background-color: #f9f9f9;
+				    margin: 0;
+				    padding: 0;
+				    color: #333;
+				}
+				* {
+				    margin: 0;
+				    padding: 0;
+				    box-sizing: border-box;
+				}
+				 */
+        /* 导航样式 */
+        .nav-menu {
+            list-style: none;
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+ 
+        .nav-item {
+            display: inline-block;
+            margin: 0 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+ 
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+ 
+        .nav-link:hover {
+            color: black;
+			font-weight: bolder;
+				
+            transform: translateY(-2px);
+        }
+
+        /* 页面标题 */
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin: 20px 0;
+            color: #4CAF50;
+        }
+
+        /* 内容区域 */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .content video {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .content .text-content {
+            width: 100%;
+            max-width: 500px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content .text-content h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .content .text-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .content .text-content ul li {
+            margin-bottom: 10px;
+        }
+				
+				
+				
+			</style>
+		
+		
+		
+		
+		
+	</body>
+</html>

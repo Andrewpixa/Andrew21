@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构伪类示例</title>
+    <style>
+		.nav-menu {
+		    list-style: none;
+		    text-align: center;
+		    padding: 2rem;
+		    background: #f8f9fa;
+		    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		}
+		 
+		.nav-item {
+		    display: inline-block;
+		    margin: 0 2rem;
+		    font-size: 1.1rem;
+		    transition: all 0.3s ease;
+		}
+		 
+		.nav-link {
+		    text-decoration: none;
+		    color: #333;
+		    padding: 0.8rem 1.5rem;
+		    border-radius: 25px;
+		    transition: all 0.3s ease;
+		}
+		 
+		.nav-link:hover {
+		    background: #007bff;
+		    color: white;
+		    transform: translateY(-2px);
+		}
+		/* 可以整份代码中调用 */
+        :root {
+            --a-color: #3498db;
+            --secondary-color: #2ecc71;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        /* 如果div中没有任何元素将会有一个border */
+        div:empty {
+            border: 2px dashed #ff0000;
+            height: 50px;
+            width: 50px;
+            margin: 10px 0;
+        }
+        
+        
+        .container > div:first-child {
+            background-color: var(--a-color);
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .container > div:last-child {
+            background-color: green;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+        
+        /* :only-child 伪类 */
+        .only-child-container > div:only-child {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        /* :first-of-type 和 :last-of-type 伪类 */
+		/* :first-of-type 选中第一个 */
+        .types > p:first-of-type {
+            font-weight: bold;
+            color: #ff0000;
+        }
+        /* :first-of-type 选中最后一个 */
+        .types > p:last-of-type {
+            font-style: italic;
+            color: #00ff00;
+        }
+        
+			/* :only-of-type 伪类 */
+			.only-type > p:only-of-type {
+				background-color: #ff9900;
+				padding: 10px;
+				margin: 10px 0;
+			}
+        
+        
+		/* li表示奇数的 odd表示奇数 */
+        .list > li:nth-child(odd) {
+            background-color: red;
+        }
+        /* li表示偶数的 even表示奇数 */
+        .list > li:nth-child(even) {
+            background-color: tan;
+        }
+        
+        .list > li:nth-child(3) {
+            background-color: palegoldenrod;
+        }
+        
+        
+		/* 表示指定的p元素 */
+        .multiple-types > p:nth-of-type(2) {
+            border: 2px solid #0000ff;
+            padding: 5px;
+        }
+        
+        .multiple-types > p:nth-last-of-type(3) {
+            border: 2px dashed #0000ff;
+            padding: 5px;
+        }
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease;
+		}
+
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		    position: relative; /* 为伪元素定位 */
+		}
+		
+		.nav-link:hover {
+		    background-color: ghostwhite;
+			 color: black;/* 鼠标悬停时的背景颜色 */
+			font-weight: bolder;
+		}
+		
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 300px;
+		}
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: black; /* 下拉菜单文字颜色也为黑色 */
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}
+		
+		
+		
+		
+		
+    </style>
+</head>
+<body>
+    <div class="navbar">
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+            <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+            <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+            <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+            <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+    		<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+    		<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+    		<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+    		<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="new_Html/main.html">Click on it </a></li>
+			    </ul>
+			</li>
+        </ul>
+    </nav>
+    </div>
+    
+    
+    <div class="container">
+        <div>这是第一个子元素</div>
+        <div>这是第二个子元素</div>
+        <div>这是第三个子元素</div>
+    </div>
+    
+    <div class="only-child-container">
+        <div>这是唯一的子元素</div>
+    </div>
+    
+    <div class="types">
+        <p>这是第一个段落</p>
+        <div>这是一个 div 元素</div>
+        <p>这是第二个段落</p>
+    </div>
+    
+    <div class="only-type">
+        <p>这是唯一的段落元素</p>
+    </div>
+    
+    <ul class="list">
+        <li>列表项 1</li>
+        <li>列表项 2</li>
+        <li>列表项 3</li>
+        <li>列表项 4</li>
+    </ul>
+    
+    <div class="multiple-types">
+        <p>这是第一个段落</p>
+        <p>这是第二个段落</p>
+        <div>这是一个 div 元素</div>
+        <p>这是第三个段落</p>
+    </div>
+    
+    <div></div>
+	
+	    <h1>输入伪类示例</h1>
+	    
+	    <form>
+	        <div class="form-group">
+	            <label for="username">用户名:</label>
+	            <input type="text" id="username" name="username" required>
+	        </div>
+	        
+	        <div class="form-group">
+	            <label for="email">邮箱:</label>
+	            <input type="email" id="email" name="email" required>
+	        </div>
+	        
+	        <div class="form-group">
+	            <label for="password">密码:</label>
+	            <input type="password" id="password" name="password" required minlength="6">
+	        </div>
+	        
+	        <div class="form-group">
+	            <label>订阅通讯:</label>
+	            <div class="checkbox-group">
+	                <label>
+	                    <input type="checkbox" name="newsletter" value="tech"> 技术更新
+	                </label>
+	                <label>
+	                    <input type="checkbox" name="newsletter" value="news"> 行业新闻
+	                </label>
+	                <label>
+	                    <input type="checkbox" name="newsletter" value="events"> 活动信息
+	                </label>
+	            </div>
+	        </div>
+	        
+	        <div class="form-group">
+	            <label>同意条款:</label>
+	            <input type="checkbox" id="terms" name="terms" required>
+	            <label for="terms">我同意服务条款</label>
+	        </div>
+	        
+	        <button type="submit">提交</button>
+	    </form>
+		<style>
+			       form {
+			            max-width: 400px;
+			            margin: 0 auto;
+			            padding: 20px;
+			            border: 1px solid #ccc;
+			            border-radius: 5px;
+			        }
+			        
+			        label {
+			            display: block;
+			            margin-bottom: 5px;
+			        }
+			        
+			        input, select, textarea {
+			            width: 100%;
+			            padding: 8px;
+			            margin-bottom: 15px;
+			            border: 1px solid #ccc;
+			            border-radius: 4px;
+			            box-sizing: border-box;
+			        }
+			        
+			        /* :enabled 伪类 启用状态*/
+			        input:enabled {
+			            background-color: orange;
+			        }
+			        
+			        /* :disabled 伪类 未启用*/
+			        input:disabled {
+			            background-color: black;
+			            opacity: 0.7;
+			        }
+			        
+			        /* :checked 伪类 */
+			        input:checked {
+			            box-shadow: 0 0 5px #0000ff;
+			        }
+			        
+			        /* 添加一些额外的样式 */
+			        .checkbox-group {
+			            margin-bottom: 15px;
+			        }
+			        
+			        .checkbox-group label {
+			            display: inline-block;
+			            margin-right: 10px;
+			        }
+			        
+			        button {
+			            background-color: #4CAF50;
+			            color: white;
+			            padding: 10px 15px;
+			            border: none;
+			            border-radius: 4px;
+			            cursor: pointer;
+			        }
+			        
+			        button:hover {
+			            background-color: #45a049;
+			        }
+		</style>
+		
+		
+		
+		
+		
+		    <div class="container">
+		        <h1>伪类综合示例</h1>
+		        
+		        <!-- 位置伪类 :target 示例 -->
+		        <div class="tabs">
+		            <a href="#home">首页</a>
+		            <a href="#about">关于我们</a>
+		            <a href="#contact">联系我们</a>
+		        </div>
+		        
+		        <div id="home" class="tab-content">
+		            <h2>首页内容</h2>
+		            <p>欢迎访问我们的网站！</p>
+		        </div>
+		        
+		        <div id="about" class="tab-content">
+		            <h2>关于我们</h2>
+		            <p>我们是一个专注于高质量内容的团队。</p>
+		        </div>
+		        
+		        <div id="contact" class="tab-content">
+		            <h2>联系我们</h2>
+		            <p>如有任何问题，请通过以下方式联系我们：</p>
+		            <ul>
+		                <li>邮箱: contact@example.com</li>
+		                <li>电话: 123-456-7890</li>
+		            </ul>
+		        </div>
+		        
+		        <!-- 语言伪类 :lang() 示例 -->
+		        <div class="quote-container">
+		            <p lang="en"><q>This is an English quote with proper quotation marks.</q></p>
+		            <p lang="zh"><q>这是一个带有正确引号的中文引用。</q></p>
+		        </div>
+		        
+		        <!-- 逻辑伪类 :not() 示例 -->
+		        <div class="item-list">
+		            <div class="item">普通项目</div>
+		            <div class="item active">活动项目</div>
+		            <div class="item highlight">高亮项目</div>
+		        </div>
+		    </div>
+			<!-- 文字样式的具有继承性 -->
+			    <style>
+			        body {
+			            font-family: Arial, sans-serif;
+			            margin: 20px;
+			            line-height: 1.6;
+			        }
+			        
+			        .container {
+			            max-width: 800px;
+			            margin: 0 auto;
+			            padding: 20px;
+			        }
+			        
+			        /* 位置伪类 :target */
+			        .tab-content:not(:target) {
+			            display: none;
+			        }
+			        
+			        .tab-content:target {
+			            display: block;
+			            border: 1px solid #ccc;
+			            padding: 15px;
+			            border-radius: 5px;
+			        }
+			        
+			        .tabs {
+			            display: flex;
+			            margin-bottom: 10px;
+			        }
+			        
+			        .tabs a {
+			            padding: 10px 15px;
+			            margin-right: 5px;
+			            background-color: #f0f0f0;
+			            text-decoration: none;
+			            color: #333;
+			            border-radius: 5px 5px 0 0;
+			        }
+			        
+			        .tabs a:hover {
+			            background-color: #e0e0e0;
+			        }
+			        
+			        /* 语言伪类 :lang() */
+			        :lang(en) {
+			            quotes: '"' '"';
+			        }
+			        
+			        :lang(zh) {
+			            quotes: "“" "”";
+			        }
+			        /* 在元素之前插入 */
+			        q::before {
+			            content: open-quote;
+			        }
+			        
+			        q::after {
+			            content: close-quote;
+			        }
+			        
+			        .quote-container {
+			            margin: 20px 0;
+			            padding: 15px;
+			            background-color: #f9f9f9;
+			            border-left: 3px solid #ccc;
+			        }
+			        
+			        /* 逻辑伪类 :not() */
+			        .item:not(.active) {
+			            opacity: 0.7;
+			            cursor: not-allowed;
+			        }
+			        
+			        .item.active {
+			            background-color: #e0f7fa;
+			            border: 1px solid #0097a7;
+			            border-radius: 5px;
+			            padding: 10px;
+			            margin: 5px 0;
+			        }
+			        
+			        .item.highlight {
+			            background-color: #fff3e0;
+			            border-color: #ff9800;
+			        }
+			    </style>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+
+			 @keyframes blink {
+			            0%, 100% { opacity: 1; }
+			            50% { opacity: 0; }
+			        }
+			
+			       #a1{
+						text-align: center;
+						
+			            font-size: 80px;
+			            color: red;
+			            animation: blink 2s infinite;
+			        }
+					
+					header {
+					    background-color: #fff;
+					    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+					    padding: 15px 0;
+					    position: sticky;
+					    top: 0;
+					    z-index: 100;
+					}
+					
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        /* 导航样式 */
+        .nav-menu {
+            list-style: none;
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+ 
+        .nav-item {
+            display: inline-block;
+            margin: 0 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+ 
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+ 
+        .nav-link:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+ 
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease;
+		}
+
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		    position: relative; /* 为伪元素定位 */
+		}
+		
+		.nav-link:hover {
+		    background-color: ghostwhite;
+			 color: black;/* 鼠标悬停时的背景颜色 */
+			font-weight: bolder;
+		}
+		
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 300px;
+		}
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: black; /* 下拉菜单文字颜色也为黑色 */
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}
+		
+		
+		
+		
+		</style>
+	</head>
+	<body>
+    <header>
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+            <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+            <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+            <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+            <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+			<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+			<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="new_Html/main.html">Click on it </a></li>
+			    </ul>
+			</li>
+        </ul>
+    </nav>
+    </header>
+		<div>
+			<h1 id="a1">敬请期待</h1>
+		</div>
+		
+		
+		<div class="container">
+		    <h1>提交用户信息</h1>
+		    <form id="infoForm">
+		        <!-- 基本信息 -->
+		        <div class="form-group">
+		            <label for="name">姓名：</label>
+		            <input type="text" id="name" name="name" required>
+		        </div>
+		        <div class="form-group">
+		            <label>性别：</label>
+		            <div class="radio-group">
+		                <input type="radio" id="male" name="gender" value="male" required>
+		                <label for="male">男</label>
+		                <input type="radio" id="female" name="gender" value="female" required>
+		                <label for="female">女</label>
+		                <input type="radio" id="other" name="gender" value="other" required>
+		                <label for="other">其他</label>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="age">年龄：</label>
+		            <input type="number" id="age" name="age">
+		            <span class="optional">(可选)</span>
+		        </div>
+		        <div class="form-group">
+		            <label for="contact">联系方式：</label>
+		            <input type="text" id="contact" name="contact" required>
+		        </div>
+		        <div class="form-group">
+		            <label for="address">地址：</label>
+		            <input type="text" id="address" name="address">
+		            <span class="optional">(可选)</span>
+		        </div>
+				
+				<h1>验证形</h1>
+				<form method="POST">
+					<!--识别是否为电子邮件 -->
+					<p><label>电子邮件：<input type="email"/></label></p>
+					
+					<p><label>电子号码：<input type="tel"/></label></p>
+					
+					
+					<!-- url这里指的是http开头的 -->
+					<p><label>你的网址：<input type="url"/></label></p>
+					
+					
+					<!-- 显示进度 -->
+					<p><label>进度条<input type="range" min="0" max="100" step="5" id="Orange"/><output id="Ooutput"></output></label></p>
+					
+					
+					<script>
+						window.onload = function(){
+							var ainput = document.getElementById("Orange");
+							var output = document.getElementById("Ooutput");
+							//获取range的初始值
+							output.value = ainput.value;
+							//拖动改变它的值
+							ainput.onchange = function(){
+								output.value = ainput.value;
+							}
+							
+							var oinput = document.getElementById("Ocolors");
+							var ooutput = document.getElementById("OcolorsNumber");
+							//获取range的初始值
+							ooutput.value = oinput.value;
+							//拖动改变它的值
+							oinput.onchange = function(){
+								ooutput.value = oinput.value;
+							}
+						}
+						
+						
+						
+					</script>
+					
+				 
+					<p><label>进度条 &nbsp;<input type="number" min="0" max="100" step="5" id="Orange1"/><output id="Ooutput1"></output></label></p>
+
+					
+					<!-- 获取颜色 -->
+					<p><label>Pick colors：<input type="color" id="Ocolors"/><output id="OcolorsNumber"></output></label></p>
+					
+					
+					<!-- 获取日历 -->
+					<p><label>日历：<input type="date" value="2025-03-18"/></label></p>
+					
+					
+					<!-- 获取时间 -->
+					<p><label>时间：<input type="time" value="08:04"/></label></p>
+					
+					
+					<!-- 我们可以使用pattern属性 [a-zA-Z]\w{4,9}$ -->
+					<p><label>时间：<input type="text" pattern="[a-zA-Z]\w{4,9}$" autofocus/></label></p>
+					<input type="submit"/>
+				</form>
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<style>
+		    body {
+		        font-family: Arial, sans-serif;
+		        background-color: #f4f4f4;
+		        margin: 0;
+		        padding: 20px;
+		    }
+		    .container {
+		        max-width: 600px;
+		        margin: 0 auto;
+		        background: #fff;
+		        padding: 20px;
+		        border-radius: 8px;
+		        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    }
+		    h1 {
+		        text-align: center;
+		        // color: #333;
+		    }
+		    .form-group {
+		        margin-bottom: 15px;
+		    }
+		    .form-group label {
+		        display: block;
+		        margin-bottom: 5px;
+		        font-weight: bold;
+		    }
+		    .form-group input[type="text"],
+		    .form-group input[type="number"],
+		    .form-group input[type="email"],
+		    .form-group textarea,
+		    .form-group select {
+		        width: 100%;
+		        padding: 8px;
+		        border: 1px solid #ccc;
+		        border-radius: 4px;
+		        box-sizing: border-box;
+		    }
+		    .form-group input[type="radio"] {
+		        margin-right: 10px;
+		    }
+		    .form-group .radio-group {
+		        display: flex;
+		        align-items: center;
+		    }
+		    .form-group .radio-group label {
+		        margin-right: 20px;
+		    }
+		    .form-group .file-upload {
+		        margin-top: 5px;
+		    }
+		    .form-group .file-upload input[type="file"] {
+		        padding: 8px;
+		    }
+		    .form-group .file-upload label {
+		        font-weight: normal;
+		    }
+		    .form-group .optional {
+		        font-size: 0.9em;
+		        color: #666;
+		    }
+		    .submit-btn {
+		        width: 100%;
+		        padding: 10px;
+		        background-color: #28a745;
+		        color: #fff;
+		        border: none;
+		        border-radius: 4px;
+		        cursor: pointer;
+		        font-size: 16px;
+		    }
+		    .submit-btn:hover {
+		        background-color: #218838;
+		    }
+		</style>
+	</body>
+</html>

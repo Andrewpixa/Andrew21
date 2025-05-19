@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>留言板</title>
+		<style>
+			ul {
+				list-style: none;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			li {
+				border: 1px solid #000;
+				padding: 10px;
+				margin: 10px;
+				border-radius: 5px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			li:hover {
+				background-color: antiquewhite;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+			}
+
+			#message-container {
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			h1 {
+				color: #333;
+			}
+
+			button.delete-btn {
+				background-color: #f44336;
+				border: none;
+				color: white;
+				padding: 5px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 14px;
+				margin: 0 2px;
+				cursor: pointer;
+				border-radius: 4px;
+				transition: background-color 0.3s;
+			}
+
+			button.delete-btn:hover {
+				background-color: #d32f2f;
+			}
+
+			button.add-btn {
+				background-color: #4CAF50;
+				border: none;
+				color: white;
+				padding: 10px 20px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 10px 2px;
+				cursor: pointer;
+				border-radius: 4px;
+				transition: background-color 0.3s;
+			}
+
+			button.add-btn:hover {
+				background-color: #45a049;
+			}
+
+			form {
+				margin-top: 20px;
+			}
+
+			input[type="text"] {
+				width: 70%;
+				height: 40px;
+				padding: 0 10px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				font-size: 16px;
+			}
+
+			input[type="button"] {
+				height: 40px;
+				width: 100px;
+				background-color: #2196F3;
+				color: white;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			input[type="button"]:hover {
+				background-color: #0b7dda;
+			}
+			
+			* {
+			    margin: 0;
+			    padding: 0;
+			    box-sizing: border-box;
+			} 
+			
+/* 			body {
+			    font-family: 'Poppins', sans-serif;
+			    position: relative;
+			    overflow: hidden;
+			    min-height: 100vh;
+				z-index: 500;
+			} */ 
+			/* 粒子背景样式 */
+			#particles-js {
+			    position: fixed;
+			    width: 100%;
+			    height: 100%;
+			    z-index: -1;
+			    background-color: white; 
+			}
+			
+			
+			/* 基础样式 */
+			.nav-menu {
+			    list-style: none;
+			    padding: 0;
+			    margin: 0;
+			    display: flex;
+			    justify-content: center;
+			}
+			
+			.nav-item {
+			    position: relative;
+			    padding: 0 15px;
+			}
+			
+			.nav-link {
+			    color: black; /* 所有文字颜色改为黑色 */
+			    text-decoration: none;
+			    display: block;
+			    padding: 10px 0;
+			    transition: background-color 0.3s ease, color 0.3s ease;
+			    position: relative; /* 为伪元素定位 */
+			}
+			
+			.nav-link:hover {
+			    background-color: ghostwhite;
+				 color: black;/* 鼠标悬停时的背景颜色 */
+				font-weight: bolder;
+			}
+			
+			/* 文字下划线动画效果 */
+			.nav-link::after {
+			    content: '';	
+			    position: absolute;
+			    bottom: 0;
+			    left: 50%; /* 从中间开始 */
+			    width: 0; /* 初始宽度为0 */
+			    height: 2px; /* 横线高度 */
+			    background-color: black; /* 横线颜色改为黑色 */
+			    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+			}
+			
+			.nav-link:hover::after {
+			    width: 100%; /* 鼠标悬停时宽度变为100% */
+			    left: 0; /* 从/中间扩展到两侧 */
+			}
+			
+			/* 下拉菜单样式 */
+			.dropdown-menu {
+			    display: none;
+			    position: absolute;
+			    top: 100%;
+			    left: 0;
+			    background-color: #fff;
+			    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+			    border-radius: 8px;
+			    z-index: 1000;
+			    list-style: none;
+			    padding: 10px 0;
+			    margin: 0;
+			    width: 300px;
+			}
+			
+			
+			.dropdown-menu li a {
+			    display: block;
+			    padding: 10px 15px;
+			    text-decoration: none;
+			    color: black; /* 下拉菜单文字颜色也为黑色 */
+			    transition: background-color 0.3s ease;
+			}
+			
+			.dropdown-menu li a:hover {
+			    background-color: #f1f1f1;
+			}
+			
+			/* 鼠标悬停显示下拉菜单 */
+			.dropdown:hover .dropdown-menu {
+			    display: block;
+			}
+			
+			/* 下拉菜单的过渡效果 */
+			.dropdown-menu {
+			    opacity: 0;
+			    visibility: hidden;
+			    transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+			
+			.dropdown:hover .dropdown-menu {
+			    opacity: 1;
+			    visibility: visible;
+			}
+			header {
+			    background-color: #fff;
+			    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			    padding: 15px 0;
+			    position: sticky;
+			    top: 0;
+				width: 100%;
+			    z-index: 100;
+			}
+			.nav-menu {
+			   list-style: none;
+			    text-align: center;
+			    /* padding: 2rem; */
+			    background: #f8f9fa;
+			    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			} 
+			
+			
+		</style>
+	</head>
+	<body>
+		<section id="particles-js"></section>
+		
+		<header>
+		<nav>
+		    <ul class="nav-menu">
+				<li class="nav-item"><a class="nav-link" href="new_Html/main.html">Back</a></li>
+		        <li class="nav-item"><a class="nav-link" href="main.html">Homework</a></li>
+				<li class="nav-item"><a class="nav-link" href="new_Html/leave-comment.html">Leave Comment</a></li>
+				
+		       <!-- <li class="nav-item"><a class="nav-link" href="1.html">flex定位</a></li> -->
+				
+				<!-- <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+				    <ul class="dropdown-menu">
+				        <li><a href="Huawei.html">华为页面</a></li>
+				        <li><a href="Award.html">奖状</a></li>
+				        <li><a href="DragonFlying.html">飞龙在天</a></li>
+						<li><a href="Position.html">探究定位</a></li>
+						<li><a href="Click.html">Javascript点击添加事件</a></li>
+				    </ul>
+				</li> -->
+			</ul>
+		</nav>
+			</header>
+			
+		<div id="message-container">
+			
+			<h1>留言板</h1>
+			<ul id="list">
+				<li>
+					<span>知识的可靠性一直是个困扰哲学家的问题。我们通常认为，知识来源于经验、理性和权威。然而，经验可能欺骗我们，理性可能受限，而权威也可能犯错。</span>
+					<button class="delete-btn">删除</button>
+				</li>
+				<li>
+					<span>虽然我们无法达到绝对的确定性，但我们可以通过不断验证、反思和修正来接近真理。知识就像一条河流，它不断流动和变化，但它的方向是向真理前进的。</span>
+					<button class="delete-btn">删除</button>
+				</li>
+				<li>
+					<span>或许真理本身没有一个固定的标尺，但它可以通过其内在的一致性和与其他知识的和谐来体现。更重要的是，我们对真理的追求，本身就是一种意义。</span>
+					<button class="delete-btn">删除</button>
+				</li>
+				<li>
+					<span>我们真的有自由意志吗？还是说我们的行为都是由先前的因素决定的？</span>
+					<button class="delete-btn">删除</button>
+				</li>
+			</ul>
+			
+			<form onsubmit="return false;">
+				<input id="txt" type="text" placeholder="请输入留言内容" required autofocus autocomplete="off">
+				<input id="btn" type="button" value="插入留言">
+			</form>
+		</div>
+		
+		<script>
+			window.onload = function() {
+				var oBtn = document.getElementById("btn");
+				var oUl = document.getElementById("list");
+				var oTxt = document.getElementById("txt");
+				
+				// 加载已保存的留言
+				loadMessages();
+				
+				oBtn.onclick = function() {
+					var text = oTxt.value.trim();
+					
+					if (text === '') {
+						alert('留言内容不能为空！');
+						return;
+					}
+					
+					var oLi = document.createElement("li");
+					var messageSpan = document.createElement("span");
+					var deleteBtn = document.createElement("button");
+					
+					deleteBtn.className = "delete-btn";
+					deleteBtn.textContent = "删除";
+					
+					messageSpan.textContent = text;
+					oLi.appendChild(messageSpan);
+					oLi.appendChild(deleteBtn);
+					
+					oUl.appendChild(oLi);
+					
+					// 添加删除事件
+					deleteBtn.onclick = function() {
+						oUl.removeChild(oLi);
+						saveMessages();
+					};
+					
+					// 保存到本地存储
+					saveMessages();
+					
+					// 清空输入框
+					oTxt.value = '';
+				};
+			};
+			
+			// 保存留言到本地存储
+			function saveMessages() {
+				var oUl = document.getElementById("list");
+				var messages = [];
+				
+				for (var i = 0; i < oUl.children.length; i++) {
+					var messageText = oUl.children[i].querySelector('span').textContent;
+					messages.push(messageText);
+				}
+				
+				localStorage.setItem('messages', JSON.stringify(messages));
+			}
+			
+			// 从本地存储加载留言
+			function loadMessages() {
+				var oUl = document.getElementById("list");
+				var savedMessages = localStorage.getItem('messages');
+				
+				if (savedMessages) {
+					var messages = JSON.parse(savedMessages);
+					
+					// 清空当前留言列表
+					while (oUl.firstChild) {
+						oUl.removeChild(oUl.firstChild);
+					}
+					
+					// 添加保存的留言
+					for (var i = 0; i < messages.length; i++) {
+						var oLi = document.createElement("li");
+						var messageSpan = document.createElement("span");
+						var deleteBtn = document.createElement("button");
+						
+						deleteBtn.className = "delete-btn";
+						deleteBtn.textContent = "删除";
+						
+						messageSpan.textContent = messages[i];
+						oLi.appendChild(messageSpan);
+						oLi.appendChild(deleteBtn);
+						
+						oUl.appendChild(oLi);
+						
+						// 添加删除事件
+						deleteBtn.onclick = function() {
+							oUl.removeChild(this.parentNode);
+							saveMessages();
+						};
+					}
+				}
+			}
+		</script>
+		<script src="js/particles.min.js"></script>
+		<script src="js/particles.js"></script>
+		<script src="js/app.js"></script>	
+	</body>
+</html>	

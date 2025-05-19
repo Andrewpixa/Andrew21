@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+<!-- 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.css"> -->
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.css"> -->
+		<style>
+
+			/* 基础样式 */
+			.nav-menu {
+			    list-style: none;
+			    padding: 0;
+			    margin: 0;
+			    display: flex;
+			    justify-content: center;
+			}
+			
+			.nav-item {
+			    position: relative;
+			    padding: 0 15px;
+			}
+			
+			.nav-link {
+			    color: black; /* 所有文字颜色改为黑色 */
+			    text-decoration: none;
+			    display: block;
+			    padding: 10px 0;
+			    transition: background-color 0.3s ease, color 0.3s ease;
+			    position: relative; /* 为伪元素定位 */
+			}
+			
+			.nav-link:hover {
+			    background-color: ghostwhite;
+				 color: black;/* 鼠标悬停时的背景颜色 */
+				font-weight: bolder;
+			}
+			
+			/* 文字下划线动画效果 */
+			.nav-link::after {
+			    content: '';
+			    position: absolute;
+			    bottom: 0;
+			    left: 50%; /* 从中间开始 */
+			    width: 0; /* 初始宽度为0 */
+			    height: 2px; /* 横线高度 */
+			    background-color: black; /* 横线颜色改为黑色 */
+			    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+			}
+			
+			.nav-link:hover::after {
+			    width: 100%; /* 鼠标悬停时宽度变为100% */
+			    left: 0; /* 从中间扩展到两侧 */
+			}
+			
+			/* 下拉菜单样式 */
+			.dropdown-menu {
+			    display: none;
+			    position: absolute;
+			    top: 100%;
+			    left: 0;
+			    background-color: #fff;
+			    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+			    border-radius: 8px;
+			    z-index: 1000;
+			    list-style: none;
+			    padding: 10px 0;
+			    margin: 0;
+			    width: 300px;
+			}
+			
+			
+			.dropdown-menu li a {
+			    display: block;
+			    padding: 10px 15px;
+			    text-decoration: none;
+			    color: black; /* 下拉菜单文字颜色也为黑色 */
+			    transition: background-color 0.3s ease;
+			}
+			
+			.dropdown-menu li a:hover {
+			    background-color: #f1f1f1;
+			}
+			
+			/* 鼠标悬停显示下拉菜单 */
+			.dropdown:hover .dropdown-menu {
+			    display: block;
+			}
+			
+			/* 下拉菜单的过渡效果 */
+			.dropdown-menu {
+			    opacity: 0;
+			    visibility: hidden;
+			    transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+			
+			.dropdown:hover .dropdown-menu {
+			    opacity: 1;
+			    visibility: visible;
+			}
+			header {
+			    background-color: #fff;
+			    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			    padding: 15px 0;
+			    position: sticky;
+			    top: 0;
+			    z-index: 100;
+			}
+			.nav-menu {
+			   list-style: none;
+			    text-align: center;
+			    /* padding: 2rem; */
+			    background: #f8f9fa;
+			    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			}
+			
+			#IdImg{
+				/* border: 5px solid black; */
+				border-radius: 100px;
+				width: 190px;
+				height: 190px;
+				margin-left: 100px;
+				margin-top: 0px;
+				float: left;
+				
+			}
+			
+			#topImage{
+				border-radius: 100px;
+				width: 180px;
+				height: 200px;
+			}
+			#name{
+				font-size: 50px;
+			}
+			#name:hover{
+				
+				/* color:red; */
+				
+				text-shadow: 0 0 4px white,0 -5px 4px #ff3,2px -10px 6px #fd3 , -2px -15px 11px #f80 , 2px -25px 18px #f20;
+				transition: font-size 0.5s linear 0s;
+			}
+			
+			
+			#down{
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.box{
+				opacity: 0.8;
+				border: #f1f1f1 solid 10px;
+				padding: 20px;
+				margin: 20px;
+				margin-left: 90px;
+				border-radius: 20px;
+			}
+			
+			.right-box{
+				display: flex;
+				flex-wrap: nowrap;
+			}
+			
+			.box-link {
+			    display: inline-block;
+			    padding: 10px 15px;
+			    margin: 5px;
+			    color: #333;
+			    text-decoration: none;
+			    border-radius: 5px;
+			    transition: background-color 0.3s;
+			}
+			* {
+			    margin: 0;
+			    padding: 0;
+			    box-sizing: border-box;
+			}
+
+			body {
+			    font-family: 'Poppins', sans-serif;
+			    position: relative;
+			    overflow: hidden;
+			    min-height: 100vh;
+				z-index: 500;
+			}
+			/* 粒子背景样式 */
+			#particles-js {
+			    position: fixed;
+			    width: 100%;
+			    height: 100%;
+			    z-index: -1;
+			    background-color: white; 
+			}
+		</style>
+	</head>
+	<body>
+		<section id="particles-js"></section>
+		<header>
+		<nav>
+		    <ul class="nav-menu">
+		        <li class="nav-item"><a class="nav-link" href="main.html">Homework</a></li>
+				<li class="nav-item"><a class="nav-link" href="new_Html/leave-comment.html">Leave Comment</a></li>
+				
+		       <!-- <li class="nav-item"><a class="nav-link" href="1.html">flex定位</a></li> -->
+				
+				<!-- <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+				    <ul class="dropdown-menu">
+				        <li><a href="Huawei.html">华为页面</a></li>
+				        <li><a href="Award.html">奖状</a></li>
+				        <li><a href="DragonFlying.html">飞龙在天</a></li>
+						<li><a href="Position.html">探究定位</a></li>
+						<li><a href="Click.html">Javascript点击添加事件</a></li>
+				    </ul>
+				</li> -->
+			</ul>
+		</nav>
+			</header>
+			<br />
+			
+			
+			<section>
+				<table>
+					<table>
+					    <tr>
+					         <td colspan="4">
+					           <div id="IdImg">
+					               <video src="image/manVedio.mp4" id="topImage" autoplay loop muted></video>
+					           </div>
+					            </td>
+					            <td>
+					                <h1 style="margin-left: 50px;" id="name">Hello, I'm Andrew</h1>
+					                <p style="margin-left: 50px;">地理位置：广东省位于中国南部沿海，毗邻香港、澳门特别行政区</p>
+									<p style="margin-left: 50px;">面积：17.98万平方公里，是中国面积第18大省份</p>
+									<p style="margin-left: 50px;">人口：约1.27亿人，连续多年为全国人口第一大省</p>
+									
+					            </td>
+								<td>
+								    <h1 style="margin-left: 50px;opacity: 0;" id="name">Hello, I'm Andrew</h1>
+								    <p style="margin-left: 50px;">经济：2022年GDP约12.91万亿元，连续34年全国第一</p>
+									<p style="margin-left: 50px;">景点：拥有开平碉楼、丹霞山等世界遗产</p>
+									<p style="margin-left: 50px;">美食：粤菜（广东菜）被誉为"八大菜系"之首</p>									
+								</td>
+						 </tr>
+					</table>
+					
+					
+				
+			<!-- 	<h1 style="margin-left:150px;
+				margin-top:10px;">Location:Guangdong Province</h1>
+				<h1 style="margin-left:150px;
+				margin-top:10px;">Andrew</h1>
+				<h1 style="margin-left:150px;
+				margin-top:10px;">Andrew</h1> -->
+				</div>
+				</table>
+			</section>
+			<section style="float: left;">
+				
+				<div id="down">
+					
+					
+					
+					
+					<span class="box">
+					    <p><strong>工作邮箱:</strong> 1739454335@qq.com</p>
+					    <p><strong>应急邮箱:</strong> chen00chen2022@163.com</p>
+					</span>
+					
+					<span class="box">
+					    <p><strong>电话:</strong> +86 135 1234 5678</p>
+					    <p><strong>国际电话:</strong> +1  8765 4321</p>
+					</span>
+					
+					<span class="box">
+					    <p><strong>地址:</strong> 广东省佛山市顺德区顺德职业技术学院</p>
+					    <p><strong>办公时间:</strong> 周一至周五 9:00-18:00</p>
+					</span>
+				</div>
+				
+					
+				
+				
+			</section>
+			
+			
+			<section>
+			    <!-- 学习心得部分 -->
+			    <div style="margin: 50px;margin-bottom:80px;" class="right-box">
+			        <a  target="_blank" href="https://www.bilibili.com/video/BV1hABrYiEqz/?spm_id_from=333.337.search-card.all.click" class="box-link">
+			            <div class="box">
+			                <p>学习方法与技巧</p>
+			                <p>时间管理策略</p>
+			            </div>
+			        </a>
+			        <a target="_blank"  href="https://www.bilibili.com/video/BV1am411f7Ga/?spm_id_from=333.337.search-card.all.click" class="box-link">
+			            <div class="box">
+			                <p>高效记忆的科学原理与实践应用</p>
+			            </div>
+			        </a>
+			        <a target="_blank"  href="https://www.bilibili.com/video/BV19t41157cQ/?spm_id_from=333.337.search-card.all.click" class="box-link">
+			            <div class="box">
+			                <p>如何克服学习焦虑与拖延症</p>
+			            </div>
+			        </a>	
+			    </div>
+			
+			    <!-- 技能提升部分 -->
+			    <div style="margin: 50px;margin-bottom:80px;" class="right-box">
+			        <a  target="_blank" href="https://www.bilibili.com/video/BV1WC4y1X7PN/?spm_id_from=333.337.search-card.all.click" class="box-link">
+			            <div class="box">
+			                <p>编程技能进阶路径与资源推荐</p>
+			            </div>
+			        </a>
+			        <a  target="_blank" href="https://www.bilibili.com/video/BV1w7411j7Yp/?spm_id_from=333.337.search-card.all.click" class="box-link">
+			            <div class="box">
+			                <p>数据分析基础</p>
+			                <p>可视化技术应用</p>
+			            </div>
+			        </a>
+			        <a  target="_blank" href="https://www.bilibili.com/video/BV1ib4y1q77y/?spm_id_from=333.337.search-card.all.click" class="box-link">
+			            <div class="box">
+			                <p>外语学习方法与沉浸式环境创造</p>
+			            </div>
+			        </a>	
+			    </div>
+			
+			    <!-- 阅读与兴趣部分 -->
+			    <div style="margin: 50px; margin-bottom:80px;">
+			        <a href="https://fanqienovel.com/reader/7315843825476308030" class="box-link" target="_blank">
+			            <div class="box">
+			                <p>经典文学作品赏析</p>
+			            </div>
+			        </a>
+			        <a href="https://fanqienovel.com/reader/7478988659262245950" class="box-link" target="_blank">
+			            <div class="box">
+			                <p>科技前沿书籍推荐</p>
+			            </div>
+			        </a>
+			        <a href="https://fanqienovel.com/reader/7487904385339509822" class="box-link" target="_blank">
+			            <div class="box">
+			                <p>个人成长类必读书籍</p>
+			            </div>
+			        </a>
+			        <a href="https://fanqienovel.com/reader/7406703239921402430" class="box-link " target="_blank">
+			            <div class="box">
+			                <p>跨学科学习的思维拓展</p>
+			            </div>
+			        </a>
+			    </div>
+			</section>
+		
+		<script src="js/particles.min.js"></script>
+		<script src="js/particles.js"></script>
+		<script src="js/app.js"></script>	
+	</body>
+</html>

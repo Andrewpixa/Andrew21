@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佛山美景</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 主要内容样式 */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .image-container {
+            margin-bottom: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #555;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        
+        .content p:first-of-type {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .content br {
+            display: block;
+            margin: 0.8rem 0;
+        }
+        
+        .content h2 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            color: #4CAF50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* 特效文字 */
+        .highlight {
+            color: #007bff;
+            font-weight: 600;
+        }
+        
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		    position: relative; /* 为伪元素定位 */
+		}
+		
+
+		
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 300px;
+		}
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: black; /* 下拉菜单文字颜色也为黑色 */
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}
+		
+		
+		
+		
+		/* 导航样式 */
+		.nav-menu {
+		    list-style: none;
+		    text-align: center;
+		    padding: 2rem;
+		    background: #f8f9fa;
+		    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+		}
+		 
+		.nav-item {
+		    display: inline-block;
+		    margin: 0 2rem;
+		    font-size: 1.1rem;
+		    transition: all 0.3s ease;
+		}
+		 
+		.nav-link {
+		    text-decoration: none;
+		    color: #333;
+		    padding: 0.8rem 1.5rem;
+		    border-radius: 25px;
+		    transition: all 0.3s ease;
+		}
+		 
+	.nav-link:hover {
+	    color: black;
+		font-weight: bolder;
+			
+	    transform: translateY(-2px);
+	}
+	
+		
+		
+		
+		
+		
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+                <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+                <li class="nav-item"><a class="nav-link active" href="landscape.html">美景</a></li>
+                <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+                <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+                <li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+                <li class="nav-item"><a class="nav-link" href="form.html">复杂表单</a></li>
+                <li class="nav-item"><a class="nav-link" href="eazyForm.html">简单表单</a></li>
+                <li class="nav-item"><a class="nav-link" href="CSS_construction.html">选择功能</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">敬请期待</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Huawei.html">华为页面</a></li>
+                        <li><a href="Award.html">奖状</a></li>
+                        <li><a href="DragonFlying.html">飞龙在天</a></li>
+                        <li><a href="Position.html">探究定位</a></li>
+                        <li><a href="new_Html/main.html">点击这里</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="image/giphy.gif" alt="佛山美景" width="1000">
+        </div>
+        
+        <div class="content">
+            <h1>佛山美景</h1>
+            <p>佛山，这座位于广东省中部的古老城市，以其深厚的历史文化底蕴和独特的岭南风情吸引着无数游客。<br>这里不仅有繁华的都市景象，更有许多令人陶醉的美景。</p>
+            
+            <h2 class="highlight">辉煌的祖庙</h2>
+            <p>佛山的祖庙是这座城市最具代表性的景点之一。<br>祖庙始建于北宋元丰年间，是一座集古建筑、文物、艺术于一体的岭南文化瑰宝。<br>走进祖庙，仿佛穿越了时空，古朴的建筑、精美的雕刻和悠久的历史让人流连忘返。<br>在这里，你可以感受到岭南文化的独特魅力，欣赏到古代工匠的精湛技艺。</p>
+            
+            <h2 class="highlight">迷人的岭南天地</h2>
+            <p>岭南天地是佛山的另一张名片。<br>这里保存着大量明清时期的古民居和宗祠，建筑风格古色古香，充满了岭南韵味。<br>漫步在岭南天地，石板路、古建筑、小桥流水相映成趣，仿佛置身于一幅美丽的画卷之中。<br>此外，岭南天地还有许多特色小店和美食，让人在欣赏美景的同时，也能品尝到地道的佛山美食。</p>
+            
+            <h2 class="highlight">秀丽的清晖园</h2>
+            <p>清晖园是佛山顺德的一处著名景点，被誉为"岭南四大名园"之一。<br>它始建于明代，是一座具有深厚文化底蕴的古典园林。<br>清晖园以"清幽古香，秀丽典雅"著称，园内碧溪草堂、假山池沼、古树名木等景观错落有致，让人感受到江南园林的韵味与岭南文化的融合。</p>
+            
+            <h2 class="highlight">迷人的自然风光</h2>
+            <p>佛山的自然风光也毫不逊色。<br>三水荷花世界是亚洲最大的荷花主题公园，<br>每年夏季，这里荷花盛开，满池的荷花争奇斗艳，香气扑鼻。<br>游客可以漫步在湖边，欣赏荷花的娇美，感受"接天莲叶无穷碧，映日荷花别样红"的诗意。</p>
+            
+            <p>此外，佛山的森林公园也是一处不可错过的美景。<br>这里绿树成荫，<br>花草繁茂，空气清新，是市民休闲娱乐的好去处。<br>在森林公园，你可以登山远眺，欣赏城市的美景，也可以在湖边散步，享受宁静的时光。</p>
+            
+            <p>佛山不仅有古老的建筑和美丽的自然风光，还有许多现代化的公园和景点。<br>东平河公园就是其中之一，<br>这里有音乐喷泉、儿童乐园和大片的绿地。<br>每当夜幕降临，音乐喷泉随着节奏舞动，水柱时而高耸入云，时而轻柔如丝，为城市增添了一份浪漫与活力。</p>
+            
+            <p>佛山的美景数不胜数，无论是古老的祖庙、岭南天地，还是清新的荷花世界和森林公园，都让人感受到这座城市独特的魅力。<br>佛山，这座古老而又现代的城市，以其深厚的文化底蕴和美丽的自然风光，吸引着来自世界各地的游客，成为岭南大地上一颗璀璨的明珠。</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 佛山旅游指南</p>
+    </footer>
+
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取导航链接
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // 为导航链接添加点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // 移除所有链接的active类
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    
+                    // 如果是内部链接且不是下拉菜单
+                    if (!this.parentElement.classList.contains('dropdown')) {
+                        // 添加active类到当前点击的链接
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

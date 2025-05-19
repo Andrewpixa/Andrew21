@@ -1,0 +1,282 @@
+					header {
+					    background-color: #fff;
+					    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+					    padding: 15px 0;
+					    position: sticky;
+					    top: 0;
+					    z-index: 100;
+					}
+	.nav-menu {
+	   list-style: none;
+	    text-align: center;
+	    padding: 2rem;
+	    background: #f8f9fa;
+	    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+		
+	}
+	 
+	.nav-item {
+	    display: inline-block;
+	    margin: 0 2rem;
+	    font-size: 1.1rem;
+	    transition: all 0.3s ease;
+	}
+	 
+	.nav-link {
+	    text-decoration: none;
+	    color: #333;
+	    padding: 0.8rem 1.5rem;
+	    border-radius: 25px;
+	    transition: all 0.3s ease;
+	}
+	 
+	.nav-link:hover {
+	    background: #007bff;
+	    color: white;
+	    transform: translateY(-2px);
+	}
+					
+					
+@font-face{
+	font-family: myfont;
+	src:url("../HemgjordLettering_PERSONAL_USE_ONLY.otf");
+}
+#font_div{
+	font-family: myfont;
+	font-size: 50px;
+	text-align: center;
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+#o_div {
+	text-align: center;
+	color: red;
+	background-color: #fff;
+	font-size: 60px;
+	font-weight: bolder;
+	margin-bottom: 100px;
+	text-shadow: 0 0 4px white,0 -5px 4px #ff3,2px -10px 6px #fd3 , -2px -15px 11px #f80 , 2px -25px 18px #f20;
+	
+}
+#o_div:hover {
+    font-size: 80px;
+    transition: font-size 0.5s linear 0s; /* 仅对font-size生效 */
+    /* 或者 transition: all 0.5s linear 0s; 对所有变化的属性生效 */
+}
+#font_div:hover {
+	color:red;
+    text-shadow: 0 0 4px white,0 -5px 4px #ff3,2px -10px 6px #fd3 , -2px -15px 11px #f80 , 2px -25px 18px #f20;
+    transition: font-size 0.5s linear 0s; /* 仅对font-size生效 */
+    /* 或者 transition: all 0.5s linear 0s; 对所有变化的属性生效 */
+}
+
+#image_div{
+	background-image: url(/image/生成特定书本图片.png);
+}
+#info
+{
+	width: 1060px;
+	margin: 0 auto;
+
+}
+#info p{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.wrap
+{
+	width: 220px;
+	height: 330px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	font-family: arial,sans-serif;
+	margin: 20px 20px;
+}
+.wrap img
+{
+	border: 0;
+	width: 220px;
+	height: 330px;
+}
+.wrap p{
+	display: block;
+	width: 220px;
+	height: 330px;
+	position: absolute;
+	left: 0;
+	top: 300px;
+	background-color: rgba(0, 0, 0, 0.3);
+	font-size: 12px;
+	color: #FFFFFF;
+	padding: 0;
+	margin: 0;
+	line-height: 16px;
+}
+.wrap p b{
+	/* 他将元素显示为块集元素 */
+	display: block; 
+	font-size: 22px;
+	color: #fc0;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	line-height: 30px;
+}
+.wrap p span{
+	display: block;
+	padding: 10px;
+	line-height: 20px;
+}
+.wrap:hover p{top:0;}
+
+
+
+
+
+
+.slider-container {
+    max-width: 800px;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+    width: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* 淡入效果 */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* 圆点指示器 */
+.dots-container {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+	/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+			position: relative; /* 为伪元素定位 */
+		}
+		
+		.nav-link:hover {
+		    background-color: ghostwhite;
+			 color: black;/* 鼠标悬停时的背景颜色 */
+			font-weight: bolder;
+		}
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 200px;
+		}
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: #333;
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}

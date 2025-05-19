@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://codelover.club/coursefiles/FpTgfBNp8wo12AXSH4J-_ajVE8cT.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=10.0">
+	
+    <title>Document</title>
+</head>
+
+<body>
+	<div class="navbar">
+	<nav>
+	    <ul class="nav-menu">
+	        <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+	        <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+	        <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+	        <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+	        <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+			<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+			<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+			<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="new_Html/main.html">Click on it </a></li>
+					
+			    </ul>
+			</li>
+	    </ul>
+	</nav>
+	</div>
+	
+    <div class="model first">
+        <div class="content">
+            <p><span>Andrew</span>同学：</p>
+            <p>在第5届中国程序猿吐槽大会上，过关斩将，荣获大会“一等大嘴奖”。</p>
+            <p> 特发此证，以资证明！</p>
+            <p>中法国程序猿吐槽大会组委会</p>
+            <p> 2025年12月6日</p>
+        </div>
+    </div>
+
+    <div class="model second">
+        <div class="content">
+            <p><span>Andrew</span>同学：</p>
+            <p>在第5届中国程序猿吐槽大会上，过关斩将，荣获大会“二等大嘴奖”。</p>
+            <p> 特发此证，以资证明！</p>
+            <p>中国程序猿吐槽大会组委会</p>
+            <p> 2025年12月6日</p>
+        </div>
+    </div>
+
+    <div class="model third">
+        <div class="content">
+            <p><span>Andrew</span>同学：</p>
+            <p>在第5届中国程序猿吐槽大会上，过关斩将，荣获大会“三等大嘴奖”。</p>
+            <p> 特发此证，以资证明！</p>
+            <p>美国程序猿吐槽大会组委会</p>
+            <p> 2025年12月6日</p>
+        </div>
+    </div>
+
+    <style>
+     
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		    position: relative; /* 为伪元素定位 */
+		}
+		
+		.nav-link:hover {
+		    background-color: ghostwhite;
+			 color: black;/* 鼠标悬停时的背景颜色 */
+			font-weight: bolder;
+		}
+		
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 300px;
+		}
+		
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: black; /* 下拉菜单文字颜色也为黑色 */
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}
+		
+		
+	
+	/* 内容区域 */
+	.content {
+	    display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    padding: 20px;
+	    gap: 20px;
+	}
+	
+
+	.content .text-content {
+	    width: 100%;
+	    max-width: 500px;
+	    font-size: 16px;
+	    line-height: 1.6;
+	    text-align: justify;
+	}
+	
+	.content .text-content h2 {
+	    font-size: 24px;
+	    color: #4CAF50;
+	    margin-bottom: 10px;
+	}
+	
+	.content .text-content ul {
+	    list-style: none;
+	    padding: 0;
+	    margin: 10px 0;
+	}
+	
+	.content .text-content ul li {
+	    margin-bottom: 10px;
+	}
+		
+	
+		
+		
+        /* 先把p的内外边距清空，设为0 */
+        p {
+				margin: 0;
+				padding: 0;
+        }
+
+        .model {
+            /* 设成和图一样大，当然也可以缩放，请查阅背景相关属性 */
+            width: 500px;
+			height: 400px;
+            /* 把背景图设为奖状 */
+			background-image: url("image/9.jpg") ;
+			background-repeat: no-repeat;
+            /* 居中 */
+            margin: 10px auto;
+
+            /* 可能会遇到外边距折叠，用overflow: hidden设置一个BFC来解决 */
+            /* 关于外边距折叠，https://blog.csdn.net/lhjuejiang/article/details/79732742 */
+            overflow: hidden;
+        }
+
+        .content {
+            /* 用line-height让行之间有更好的间距 */
+				line-height: 20px;
+            /* 让文字在背景或边框中有内边距，这个其实可以不要 */
+            /* padding: 0.5em; */
+        }
+
+        /* 设第一行:字1.5em，下划线 */
+        .content p:nth-child(1) span {
+            text-decoration: underline;
+
+        }
+
+        /* 设获奖词，首行缩进2个字 */
+        .content p:nth-child(2) {
+            text-indent: 2em;
+        }
+
+        .content p:nth-child(3) {
+            padding-left: 2em;
+        }
+
+        /* 用text-align设置名，靠右对齐 */
+        .content p:nth-child(3) ~ p {
+            text-align: right;
+			
+        }
+		.content p:nth-child(5) {
+		    padding-right: 1em;
+			
+		}
+		
+       /* 用text-align设置时间，靠右对齐，同时，又不靠右太紧，用padding-right缩回1em*/
+        
+
+
+        /* 想办法把内容框设好大小，移动到奖状中间去 */
+        .content {
+            /* 先设个背景，以便观察，最后成稿时，可去掉*/
+            
+            /* 只设宽度，高度由内容撑开 */
+        
+            /* 通过margin让内容去到恰当的位置 */
+			margin: auto 0;
+			width: 350px;
+			margin-top: 140px;
+			padding-left: 80px;
+        }
+
+        /* 若想不同奖项用不一样的字体，该如何设置？ 比如一等奖用隶书体二等奖用楷体，三等奖用仿宋，设置一等奖顶层元素，让其子元素继承字体 */
+        .first {
+            font-family: LiSu,Georgia, 'Times New Roman', Times, serif;
+        }
+
+        /* 二等奖用微软雅黑 */
+		.third {
+		    font-family: 仿宋;
+		}
+        /* 三等奖用仿宋 */
+		.second {
+		    font-family: 微软雅黑;
+		}
+		span{
+			font-size: 20px;
+		}
+	
+
+		
+		
+		
+</style>
+
+
+</body></html>

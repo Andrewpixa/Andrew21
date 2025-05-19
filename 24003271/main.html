@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佛山欢迎您</title>
+    <style>
+		
+        /* 全局样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        /* 导航样式 */
+        .nav-menu {
+            list-style: none;
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+ 
+        .nav-item {
+            display: inline-block;
+            margin: 0 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+ 
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+ 
+        .nav-link:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* 页面标题 */
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin: 20px 0;
+            color: #4CAF50;
+        }
+
+        /* 内容区域 */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .content video {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .content .text-content {
+            width: 100%;
+            max-width: 500px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content .text-content h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .content .text-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .content .text-content ul li {
+            margin-bottom: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content video, .content .text-content {
+                width: 100%;
+                max-width: none;
+            }
+        }
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease;
+		}
+
+		
+		/* 基础样式 */
+		.nav-menu {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    display: flex;
+		    justify-content: center;
+		}
+		
+		.nav-item {
+		    position: relative;
+		    padding: 0 15px;
+		}
+		
+		.nav-link {
+		    color: black; /* 所有文字颜色改为黑色 */
+		    text-decoration: none;
+		    display: block;
+		    padding: 10px 0;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		    position: relative; /* 为伪元素定位 */
+		}
+		
+		.nav-link:hover {
+		    background-color: ghostwhite;
+			 color: black;/* 鼠标悬停时的背景颜色 */
+			font-weight: bolder;
+		}
+		
+		/* 文字下划线动画效果 */
+		.nav-link::after {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%; /* 从中间开始 */
+		    width: 0; /* 初始宽度为0 */
+		    height: 2px; /* 横线高度 */
+		    background-color: black; /* 横线颜色改为黑色 */
+		    transition: width 0.3s ease, left 0.3s ease; /* 宽度和位置变化的过渡效果 */
+		}
+		
+		.nav-link:hover::after {
+		    width: 100%; /* 鼠标悬停时宽度变为100% */
+		    left: 0; /* 从中间扩展到两侧 */
+		}
+		
+		/* 下拉菜单样式 */
+		.dropdown-menu {
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: #fff;
+		    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		    border-radius: 8px;
+		    z-index: 1000;
+		    list-style: none;
+		    padding: 10px 0;
+		    margin: 0;
+		    width: 300px;
+		}
+		
+		.dropdown-menu li a {
+		    display: block;
+		    padding: 10px 15px;
+		    text-decoration: none;
+		    color: black; /* 下拉菜单文字颜色也为黑色 */
+		    transition: background-color 0.3s ease;
+		}
+		
+		.dropdown-menu li a:hover {
+		    background-color: #f1f1f1;
+		}
+		
+		/* 鼠标悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+		
+		/* 下拉菜单的过渡效果 */
+		.dropdown-menu {
+		    opacity: 0;
+		    visibility: hidden;
+		    transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+		
+		.dropdown:hover .dropdown-menu {
+		    opacity: 1;
+		    visibility: visible;
+		}
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+		<div class="navbar">
+		<nav>
+		    <ul class="nav-menu">
+		        <li class="nav-item"><a class="nav-link" href="main.html">首页</a></li>
+		        <li class="nav-item"><a class="nav-link" href="food.html">美食</a></li>
+		        <li class="nav-item"><a class="nav-link" href="landscape.html">美景</a></li>
+		        <li class="nav-item"><a class="nav-link" href="cultural.html">非遗文化</a></li>
+		        <li class="nav-item"><a class="nav-link" href="andSoOn.html">其他</a></li>
+				<li class="nav-item"><a class="nav-link" href="uppestCSS.html">特效</a></li>
+				<li class="nav-item"><a class="nav-link" href="form.html">complex tablet</a></li>
+				<li class="nav-item"><a class="nav-link" href="eazyForm.html">simple tablet</a></li>
+				<li class="nav-item"><a class="nav-link" href="CSS_construction.html">selecting function</a></li>
+			<li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="#">敬请期待</a>
+			    <ul class="dropdown-menu">
+			        <li><a href="Huawei.html">华为页面</a></li>
+			        <li><a href="Award.html">奖状</a></li>
+			        <li><a href="DragonFlying.html">飞龙在天</a></li>
+					<li><a href="Position.html">探究定位</a></li>
+					<li><a href="new_Html/main.html">Click on it </a></li>
+			    </ul>
+			</li>
+		    </ul>
+		</nav>
+		</div>
+
+    <!-- 页面标题 -->
+    <h1>佛山欢迎您</h1>
+
+    <!-- 内容区域 -->
+    <div class="content">
+       <img src="image/china travel GIF.gif" alt="work">
+        <div class="text-content">
+            <h2>美食分享</h2>
+            <p>自问一直很用心给大家分享好店，是真的想把自己去过的好店与朋友们分享。大家会发现我的视频时长比较长，也是想给大家展示更多参考信息，希望可以给到大家更多参考。</p>
+            <p>我知道这种视频完播率比较低，除非真爱粉才坚持看完。只是想方便大家，认为有用的请帮忙给个免费3连，感谢🙏</p>
+            <h3>地址整理如下：</h3>
+            <ul>
+                <li>猪腰一家：分店较多，可在大众点评查找。</li>
+                <li>蒸坊私房菜：佛山祖庙体育三街9号骏丰大厦二楼</li>
+                <li>浓汤老店：季华东路顺联公园里7座1层</li>
+                <li>有记餐厅：金鱼街24号106（旭日社区对面、近卫国路）</li>
+                <li>金源酒家：佛山祖庙福宁路171号</li>
+                <li>海三饭店：佛山文华北路桂园市场旁</li>
+                <li>园外菜苑：佛山南海万石大莲塘村文化室东北侧200米</li>
+                <li>双溪酒家：佛山文华北路43号</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
